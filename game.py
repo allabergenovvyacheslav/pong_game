@@ -7,12 +7,17 @@ SCREEN_TITLE = 'Pong game'
 
 class Bar(arcade.Sprite):
     def __init__(self):
-        super().__init__('img_1.png', 0.2)
+        super().__init__('bar.png', 0.2)
 
 
 class Ball(arcade.Sprite):
     def __init__(self):
-        super().__init__('img.png', 0.2)
+        super().__init__('ball.png', 0.2)
+        self.change_x = 5
+
+    def update(self):
+        self.center_x += self.change_x
+        self.center_y += self.change_x
 
 
 class Game(arcade.Window):
@@ -33,6 +38,9 @@ class Game(arcade.Window):
         self.clear((123, 182, 97))
         self.bar.draw()
         self.ball.draw()
+
+    def update(self, delta):
+        self.ball.update()
 
 
 if __name__ == '__main__':
