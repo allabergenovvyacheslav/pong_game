@@ -2,7 +2,7 @@ import arcade
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-SCREEN_TITLE = 'Pong game'
+SCREEN_TITLE = 'Pin_pong game'
 
 
 class Bar(arcade.Sprite):
@@ -12,8 +12,8 @@ class Bar(arcade.Sprite):
 
 class Ball(arcade.Sprite):
     def __init__(self):
-        super().__init__('ball.png', 0.2)
-        self.change_x = 5
+        super().__init__('ball.png', 0.05)
+        self.change_x = 0.5
 
     def update(self):
         self.center_x += self.change_x
@@ -33,9 +33,8 @@ class Game(arcade.Window):
         self.ball.center_x = SCREEN_WIDTH / 2
         self.ball.center_y = SCREEN_HEIGHT / 2
 
-
     def on_draw(self):
-        self.clear((123, 182, 97))
+        self.clear((255, 255, 255))
         self.bar.draw()
         self.ball.draw()
 
